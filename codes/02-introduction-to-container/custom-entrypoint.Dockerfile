@@ -1,14 +1,6 @@
 FROM ubuntu:22.04
 
-RUN cat > /custom_script.sh << 'EOF'
-#!/bin/bash
-echo "This is a custom script."
-
-echo "Arguments passed: $@"
-for arg in "$@"; do
-echo "Argument: $arg"
-done
-EOF
+RUN printf '#!/bin/bash\necho "This is a custom script."\n\necho "Arguments passed: $@"\nfor arg in "$@"; do\necho "Argument: $arg"\ndone\n' > /custom_script.sh
 
 RUN chmod +x /custom_script.sh
 
