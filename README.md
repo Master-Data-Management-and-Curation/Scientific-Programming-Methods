@@ -1,4 +1,4 @@
-# Scientific Programming Environment Module
+# Scientific Programming Methods Module
 
 This repository contains the code and materials for the **Scientific Programming Methods** module, part of the **MDMC** program.
 ## Repository Contents
