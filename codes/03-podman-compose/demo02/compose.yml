@@ -1,0 +1,26 @@
+version: '3.0'
+services:
+  database:
+    image: docker.io/library/mariadb:latest
+    environment:
+      - MYSQL_DATABASE=devtodevops
+      - MYSQL_USER=dev
+      - MYSQL_PASSWORD=super_secret
+      - MYSQL_ROOT_PASSWORD=super_secret
+    volumes:
+      - wpdb_vol:/var/lib/mysql
+  wordpress:
+    image: docker.io/library/wordpress:latest
+    volumes:
+      - wpsite_vol:/var/www
+    depends_on:
+      - database
+    ports:
+      - 8080:80
+volumes:
+  wpsite_vol: {}
+  wpdb_vol: {}
+
+networks:
+  default:
+    driver: bridge
