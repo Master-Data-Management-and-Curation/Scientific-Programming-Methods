@@ -18,6 +18,18 @@
 
 <!-- markdown-toc end -->
 
+<details>
+<summary>Using a remote connection?</summary>
+
+If you using a remote connection, such as the remote VM provided for the course, use the following `ssh` command to connect to the VM:
+
+```bash
+ssh -L 8080:127.0.0.1:8080 -L 8081:127.0.0.1:8081 -L 8888:127.0.0.1:8888 <your_username>@<vm_address>
+```
+
+Otherwise, you will not be able to access with your web browser the services running inside the containers, such as the jupyter notebook.
+
+</details>
 
 ## 0. The most useful and important commands
 
