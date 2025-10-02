@@ -40,6 +40,8 @@ Host vm
     LocalForward 8888 10.128.12.<YOUR_VM_ID>:8888
 ```
 
+Where you can find your VM_ID in [this list](./99-VM.md).
+
 Otherwise, you will not be able to access with your web browser the services running inside the containers, such as the jupyter notebook.
 
 
