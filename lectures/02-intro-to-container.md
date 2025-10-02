@@ -21,13 +21,40 @@
 <details>
 <summary>Using a remote connection?</summary>
 
-If you using a remote connection, such as the remote VM provided for the course, use the following `ssh` command to connect to the VM:
+If you using a remote connection, such as the remote VM provided for the course, remeber to set properly your ssh-configuraition!
 
-```bash
-ssh -L 8080:127.0.0.1:8080 -L 8081:127.0.0.1:8081 -L 8888:127.0.0.1:8888 <your_username>@<vm_address>
+Your `$HOME/.ssh/config` file should contains
+```config
+Host orfeo-login
+    HostName 195.14.102.215
+    User <YOUR_USER_IN_ORFEO>
+    IdentityFile ~/.ssh/<YOUR_KEY_FILE_NAME>
+
+Host vm
+    HostName 10.128.12.<YOUR_VM_ID>
+    User root
+    IdentityFile ~/.ssh/<YOUR_KEY_FILE_NAME>
+    ProxyJump orfeo-login
+    LocalForward 8080 10.128.12.<YOUR_VM_ID>:8080
+    LocalForward 8081 10.128.12.<YOUR_VM_ID>:8081
+    LocalForward 8888 10.128.12.<YOUR_VM_ID>:8888
 ```
 
 Otherwise, you will not be able to access with your web browser the services running inside the containers, such as the jupyter notebook.
+
+
+Moreover, the provided VMs comes with ubuntus. Once you have intalled podman with
+
+```bash
+apt install podman
+```
+
+Edit the `containers/containers.conf` file and set:
+
+```ini
+[registries.search]
+registries = ['docker.io', 'quay.io', 'registry.fedoraproject.org']
+```
 
 </details>
 
