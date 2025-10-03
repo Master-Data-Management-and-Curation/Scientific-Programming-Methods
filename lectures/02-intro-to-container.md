@@ -51,7 +51,7 @@ Moreover, the provided VMs comes with ubuntus. Once you have intalled podman wit
 apt install podman
 ```
 
-Edit the `containers/containers.conf` file and set:
+Edit the `/etc/containers/registries.conf` file and set:
 
 ```ini
 [registries.search]
