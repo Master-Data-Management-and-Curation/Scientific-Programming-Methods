@@ -1,5 +1,0 @@
-version: "3.8"
-services:
-  web:
-    volumes:
-      - ./html-prod:/usr/share/nginx/html:ro
