@@ -1,0 +1,9 @@
+# -- Aux files in ./slides
+
+slides/**
+!slides/*.pdf
+
+# --- Isac
+
+**/.DS_Store
+slides/last-slide.pdf
