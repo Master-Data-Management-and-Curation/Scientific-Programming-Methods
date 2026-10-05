@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  web1:
+    image: nginx:alpine
+    container_name: demo_web1
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web1:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
+  web2:
+    image: httpd:alpine
+    container_name: demo_web2
+    ports:
+      - "8081:80"
+    volumes:
+      - ./web2:/usr/local/apache2/htdocs:ro
+    restart: unless-stopped
+
+networks:
+  default:
+    name: demo_net
